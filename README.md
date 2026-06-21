@@ -16,12 +16,14 @@ This repository collects DMARC aggregate report attachments from an Exchange mai
 - `PowerBI_Build_Guide.md` - step-by-step Power BI build instructions.
 - `PowerBI_Dashboard_Specifications.md` - dashboard page and visual design details.
 - `PowerBI_DAX_Measures.md` - recommended DAX measures for dashboard metrics.
+- `PowerBI_Copilot_Intake_Guide.md` - reusable intake workflow for starting new Power BI/Fabric dashboard projects from this repository pattern.
 
 ## What the Python code does
 
 ### `mailbox_fetch.py`
 
 This script:
+
 - reads Azure app credentials from `.env`
 - authenticates with Microsoft Graph API using MSAL
 - queries a mailbox for messages containing attachments
@@ -32,6 +34,7 @@ This script:
 ### `dmarc_parse.py`
 
 This script:
+
 - scans `inbox/` recursively for DMARC report files
 - supports ZIP archives, GZIP-compressed XML, and plain XML files
 - parses DMARC report metadata, policy data, authentication results, and row counts
@@ -51,6 +54,7 @@ The Power BI dashboard is designed to provide:
 - policy enforcement and data quality metrics
 
 The dashboard files and design notes include:
+
 - how to load `data_dmarc/*.csv` into Power BI
 - data type recommendations for message counts, dates, and boolean fields
 - suggested measures for pass rate, total messages, failed counts, and spoofing metrics
@@ -76,6 +80,7 @@ To recreate this Power BI dashboard using GitHub Copilot, use the Copilot plan m
    - In plan mode, ask Copilot to review the current markdown files and identify any gaps or missing dashboard details.
    - Ask Copilot to generate or refresh `PowerBI_Build_Guide.md`, `PowerBI_Dashboard_Specifications.md`, and `PowerBI_DAX_Measures.md` from the plan.
    - In agent mode, ask for a concrete implementation of those markdown files and how they map to the actual Power BI report pages.
+   - For a new dashboard use case, start with `PowerBI_Copilot_Intake_Guide.md` so Copilot asks the right questions and produces the right artifacts.
    - You can also request Copilot to create a new markdown file that summarizes the dashboard architecture and data model.
 
 ### Important
@@ -85,20 +90,20 @@ To recreate this Power BI dashboard using GitHub Copilot, use the Copilot plan m
 
 ## Setup and installation
 
-1. Create and activate a Python virtual environment in the repo folder.
+- Create and activate a Python virtual environment in the repo folder.
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-2. Install dependencies.
+- Install dependencies.
 
 ```powershell
 python -m pip install -r requirements.txt
 ```
 
-3. Create a `.env` file in the repo root with the following values:
+- Create a `.env` file in the repo root with the following values:
 
 ```ini
 TENANT_ID=your-tenant-id
@@ -107,19 +112,19 @@ CLIENT_SECRET=your-client-secret
 MAILBOX_UPN=mailbox@yourdomain.com
 ```
 
-4. Run the mailbox fetch script to download DMARC report attachments.
+- Run the mailbox fetch script to download DMARC report attachments.
 
 ```powershell
 python mailbox_fetch.py
 ```
 
-5. Run the parser to generate normalized CSVs for Power BI.
+- Run the parser to generate normalized CSVs for Power BI.
 
 ```powershell
 python dmarc_parse.py
 ```
 
-6. Open Power BI Desktop and load the CSV files from `data_dmarc/`.
+- Open Power BI Desktop and load the CSV files from `data_dmarc/`.
 
 ## Using a different credentials or context
 
