@@ -56,6 +56,25 @@ The dashboard files and design notes include:
 - suggested measures for pass rate, total messages, failed counts, and spoofing metrics
 - page layouts for executive summary, authentication analysis, threat detection, and monitoring
 
+## Recreate the Power BI dashboard with Copilot
+
+To recreate this Power BI dashboard using GitHub Copilot, use the Copilot plan mode first to define the dashboard scope and then switch to agent mode to implement the solution.
+
+1. Use Copilot **plan mode** to generate a dashboard plan:
+   - Describe the data sources, desired visuals, and the reporting pages you want.
+   - Ask Copilot to create a step-by-step implementation plan for a DMARC dashboard built from `data_dmarc/*.csv`.
+   - Include requirements such as KPI cards, authentication analysis, failure trends, and data quality monitoring.
+
+2. Use Copilot **agent mode** to implement the plan:
+   - Provide the implementation plan and the repository context.
+   - Ask the agent to create or update Power BI documentation, DAX measures, and any needed data preparation guidance.
+   - Use the agent to generate report structure, measure names, and Power BI build instructions.
+
+### Important
+
+- The Power BI MCP service is essential for best results when using Copilot to build or recreate this dashboard. It enables better Power BI-specific guidance, DAX creation, and report scaffolding.
+- Without the Power BI MCP service, Copilot can still help, but the dashboard planning and implementation will be less tailored to Power BI features.
+
 ## Setup and installation
 
 1. Create and activate a Python virtual environment in the repo folder.
