@@ -1,0 +1,205 @@
+table Kennzahlen
+	lineageTag: 5153c5fb-9c9c-403e-a32c-7932474b1526
+
+	measure 'DMARC Pass Rate' =
+			
+			DIVIDE(
+			    CALCULATE(SUM('DMARC Data'[message_count]), 'DMARC Data'[dmarc_pass] = TRUE()),
+			    SUM('DMARC Data'[message_count]),
+			    0
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 928def80-eecf-4736-a922-74aaf7e81664
+
+	measure 'DKIM Pass Rate' =
+			
+			DIVIDE(
+			    CALCULATE(SUM('DMARC Data'[message_count]), 'DMARC Data'[dkim_aligned] = "pass"),
+			    SUM('DMARC Data'[message_count]),
+			    0
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: c8bd692c-4e15-4049-ad6b-bf13e660dc31
+
+	measure 'SPF Pass Rate' =
+			
+			DIVIDE(
+			    CALCULATE(SUM('DMARC Data'[message_count]), 'DMARC Data'[spf_aligned] = "pass"),
+			    SUM('DMARC Data'[message_count]),
+			    0
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: f623f584-eace-4c8a-b797-9cb94622bc24
+
+	measure 'Both Fail Rate' =
+			
+			DIVIDE(
+			    CALCULATE(SUM('DMARC Data'[message_count]), 'DMARC Data'[both_fail] = TRUE()),
+			    SUM('DMARC Data'[message_count]),
+			    0
+			)
+		lineageTag: 39c257db-879d-43ca-98f5-c8a907c6a6a5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Messages' = SUM('DMARC Data'[message_count])
+		formatString: #,0
+		lineageTag: c2f65992-c213-4b21-8be9-ac29a44b5a87
+
+	measure 'Messages Rejected' = ```
+			
+			CALCULATE(
+			    SUM('DMARC Data'[message_count]), 
+			    'DMARC Data'[disposition] = "reject"
+			)
+			```
+		formatString: 0
+		lineageTag: cf6c1351-e1be-4866-9030-dab303bf8272
+
+	measure 'Messages Quarantined' = ```
+			
+			CALCULATE(
+			    SUM('DMARC Data'[message_count]), 
+			    'DMARC Data'[disposition] = "quarantine"
+			)
+			```
+		formatString: #,0
+		lineageTag: 211a440d-a3eb-4ffd-b14a-c834c40d58b8
+
+	measure 'Messages Passed' = ```
+			
+			CALCULATE(
+			    SUM('DMARC Data'[message_count]), 
+			    'DMARC Data'[disposition] = "none"
+			)
+			```
+		formatString: 0
+		lineageTag: 1920e83f-389c-446e-b2cc-260b4b37119c
+
+	measure 'DKIM and SPF Aligned' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM('DMARC Data'[message_count]), 
+			        'DMARC Data'[dkim_aligned] = "pass",
+			        'DMARC Data'[spf_aligned] = "pass"
+			    ),
+			    SUM('DMARC Data'[message_count]),
+			    0
+			)
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 6bd3d2f6-8258-432e-a23f-5447703ec42e
+
+	measure 'Either DKIM or SPF Aligned' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM('DMARC Data'[message_count]), 
+			        OR('DMARC Data'[dkim_aligned] = "pass", 'DMARC Data'[spf_aligned] = "pass")
+			    ),
+			    SUM('DMARC Data'[message_count]),
+			    0
+			)
+			```
+		lineageTag: 576b019b-71ef-4f72-98fe-64b61f6b7935
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Neither Aligned' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM('DMARC Data'[message_count]), 
+			        'DMARC Data'[dkim_aligned] = "fail",
+			        'DMARC Data'[spf_aligned] = "fail"
+			    ),
+			    SUM('DMARC Data'[message_count]),
+			    0
+			)
+			```
+		lineageTag: 69fca2fa-e164-459a-9e4a-72fabfca9acb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Spoofing Attempts' = ```
+			
+			CALCULATE(
+			    SUM('DMARC Data'[message_count]), 
+			    'DMARC Data'[header_from] <> 'DMARC Data'[envelope_from]
+			)
+			```
+		formatString: #,0
+		lineageTag: 859fde5c-4aa0-4797-84e2-4f746768a011
+
+	measure 'Failed Auth Count' = ```
+			
+			CALCULATE(
+			    SUM('DMARC Data'[message_count]), 
+			    'DMARC Data'[both_fail] = TRUE()
+			)
+			```
+		formatString: #,0
+		lineageTag: 732ef206-6b24-41de-878b-74a9e670df07
+
+	measure 'Policy Enforcement Rate' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM('DMARC Data'[message_count]), 
+			        OR('DMARC Data'[disposition] = "reject", 'DMARC Data'[disposition] = "quarantine")
+			    ),
+			    SUM('DMARC Data'[message_count]),
+			    0
+			)
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: ec2b9fa2-2cf4-468e-987c-fadd0fb14393
+
+	measure 'Disposition Count' = ```
+			
+			SWITCH(
+			    SELECTEDVALUE('DMARC Data'[disposition]),
+			    "none", 
+			        CALCULATE(SUM('DMARC Data'[message_count]), 'DMARC Data'[disposition] = "none"),
+			    "quarantine", 
+			        CALCULATE(SUM('DMARC Data'[message_count]), 'DMARC Data'[disposition] = "quarantine"),
+			    "reject", 
+			        CALCULATE(SUM('DMARC Data'[message_count]), 'DMARC Data'[disposition] = "reject"),
+			    BLANK()
+			)
+			```
+		formatString: #,0
+		lineageTag: 6a82009e-f1bd-452c-aae2-a819c7605c06
+
+	measure 'Reports Count' = DISTINCTCOUNT('DMARC Data'[report_id])
+		formatString: #,0
+		lineageTag: cbd39355-b0e9-4738-bbf7-fa415587c724
+
+	measure 'Organizations Count' = DISTINCTCOUNT('DMARC Data'[report_org])
+		formatString: #,0
+		lineageTag: 5e74c229-c053-424d-99ba-17d1b0182544
+
+	measure 'Unique IPs' = DISTINCTCOUNT('DMARC Data'[source_ip])
+		formatString: #,0
+		lineageTag: 42026cf5-a558-4a5e-8f17-31d08ccf231e
+
+	measure 'Unique Domains' = DISTINCTCOUNT('DMARC Data'[policy_domain])
+		formatString: #,0
+		lineageTag: 04ff4328-8d8a-4153-843a-debe4bc25c7a
+
+	column Target
+		formatString: 0
+		lineageTag: 6f16233f-5eb5-450f-9cb4-807898546a45
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Kennzahlen = calculated
+		mode: import
+		source = Row("Target", 1)
+
+	annotation PBI_Id = 8facb070c18143d891fa0b73cb427046
+

@@ -1,0 +1,296 @@
+table 'DMARC Data'
+	lineageTag: 9d8b19d8-5afb-4593-ad6d-f3e763fb86d2
+
+	column 'Source.Name'
+		dataType: string
+		lineageTag: 37d0d5a7-f685-4012-9dd1-9f01ab23df9c
+		summarizeBy: none
+		sourceColumn: Source.Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column report_org
+		dataType: string
+		lineageTag: 24fe6da9-260a-40ab-b568-36ad62345b17
+		summarizeBy: none
+		sourceColumn: report_org
+
+		annotation SummarizationSetBy = Automatic
+
+	column report_email
+		dataType: string
+		lineageTag: 76461f93-8fe6-4151-9997-85847adcda25
+		summarizeBy: none
+		sourceColumn: report_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column report_id
+		dataType: string
+		lineageTag: da89bfd0-e5ce-4e33-a327-54fd8df6b72a
+		summarizeBy: none
+		sourceColumn: report_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column report_begin_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f24a69a9-e7a7-4fda-954d-4aab1900dcf4
+		summarizeBy: none
+		sourceColumn: report_begin_utc
+
+		variation Variation
+			isDefault
+			relationship: 088af2a8-c122-46f1-a2ed-84415340a88c
+			defaultHierarchy: LocalDateTable_08543b0c-9110-4c76-b83c-6b15eea42855.Datumshierarchie
+
+		annotation SummarizationSetBy = Automatic
+
+	column report_end_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6cbc7377-9c40-495d-ae6a-3854d72cc76b
+		summarizeBy: none
+		sourceColumn: report_end_utc
+
+		variation Variation
+			isDefault
+			relationship: 06e8d68e-e42a-4a7f-9576-9422eb512007
+			defaultHierarchy: LocalDateTable_755bfeab-5df0-4da9-917a-ffbca0f00a4c.Datumshierarchie
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_domain
+		dataType: string
+		lineageTag: e2edf818-4723-46b7-b3dd-ed5508570fb4
+		summarizeBy: none
+		sourceColumn: policy_domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_adkim
+		dataType: string
+		lineageTag: 55ce77ac-f3f8-4dbd-a1f1-23eb6abfcb0b
+		summarizeBy: none
+		sourceColumn: policy_adkim
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_aspf
+		dataType: string
+		lineageTag: 6bb55f1a-1051-446b-a115-4edb8e13f456
+		summarizeBy: none
+		sourceColumn: policy_aspf
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_p
+		dataType: string
+		lineageTag: 69a0f4dc-01e9-414b-94e4-86948b55e6bf
+		summarizeBy: none
+		sourceColumn: policy_p
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_sp
+		dataType: string
+		lineageTag: 79838f3a-3b8b-4cda-a09d-14e292f1c806
+		summarizeBy: none
+		sourceColumn: policy_sp
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_pct
+		dataType: int64
+		formatString: 0
+		lineageTag: 70459dd5-872a-43f2-9ae4-fc0d53b4104d
+		summarizeBy: sum
+		sourceColumn: policy_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_ip
+		dataType: string
+		lineageTag: 1c20dfb0-2a98-4a26-9ffc-66dffc08bed9
+		summarizeBy: none
+		sourceColumn: source_ip
+
+		annotation SummarizationSetBy = Automatic
+
+	column message_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 1cae2755-f396-45cd-9672-154523ee6e4e
+		summarizeBy: sum
+		sourceColumn: message_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column disposition
+		dataType: string
+		lineageTag: 7723e441-061b-4156-80a5-c357f55067d1
+		summarizeBy: none
+		sourceColumn: disposition
+
+		annotation SummarizationSetBy = Automatic
+
+	column dkim_aligned
+		dataType: string
+		lineageTag: 568e9cc1-1a48-48ec-bfa3-74c57238de50
+		summarizeBy: none
+		sourceColumn: dkim_aligned
+
+		annotation SummarizationSetBy = Automatic
+
+	column spf_aligned
+		dataType: string
+		lineageTag: 89ab0fe2-d7b8-408d-ae00-67bad14f6119
+		summarizeBy: none
+		sourceColumn: spf_aligned
+
+		annotation SummarizationSetBy = Automatic
+
+	column fail_reason_type
+		dataType: string
+		lineageTag: 4903fb12-d4ef-4037-baee-9cbdc1e63061
+		summarizeBy: none
+		sourceColumn: fail_reason_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column fail_reason_comment
+		dataType: string
+		lineageTag: bf26f7aa-b842-4cb6-ae3c-9c38b943b652
+		summarizeBy: none
+		sourceColumn: fail_reason_comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column header_from
+		dataType: string
+		lineageTag: 84094e8b-becc-4ce5-bc33-74f774741d34
+		summarizeBy: none
+		sourceColumn: header_from
+
+		annotation SummarizationSetBy = Automatic
+
+	column envelope_from
+		dataType: string
+		lineageTag: fb296bd0-bd30-4a6f-858f-f7273bf0cf93
+		summarizeBy: none
+		sourceColumn: envelope_from
+
+		annotation SummarizationSetBy = Automatic
+
+	column auth_dkim_domain
+		dataType: string
+		lineageTag: ec6a852a-aba8-43b2-8d03-952f0b52e02c
+		summarizeBy: none
+		sourceColumn: auth_dkim_domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column auth_dkim_result
+		dataType: string
+		lineageTag: c846b362-72a7-485a-8900-56613955bd74
+		summarizeBy: none
+		sourceColumn: auth_dkim_result
+
+		annotation SummarizationSetBy = Automatic
+
+	column auth_dkim_selector
+		dataType: string
+		lineageTag: 8fe17568-54cb-4261-9d51-9af6903e96e1
+		summarizeBy: none
+		sourceColumn: auth_dkim_selector
+
+		annotation SummarizationSetBy = Automatic
+
+	column auth_spf_domain
+		dataType: string
+		lineageTag: a1d458a9-dea9-4073-8966-2b5b7879a3d4
+		summarizeBy: none
+		sourceColumn: auth_spf_domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column auth_spf_result
+		dataType: string
+		lineageTag: 28194b7d-3d83-4dda-ab9d-38bb6aa282ca
+		summarizeBy: none
+		sourceColumn: auth_spf_result
+
+		annotation SummarizationSetBy = Automatic
+
+	column auth_spf_scope
+		dataType: string
+		lineageTag: a9fae84b-25e3-4a1d-9e4b-d2f1dbcd0b4d
+		summarizeBy: none
+		sourceColumn: auth_spf_scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		lineageTag: 99da5a93-aa3f-45e4-8ee0-d84c69de9afd
+		summarizeBy: none
+		sourceColumn: source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	column dmarc_pass
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ee8a9d97-a8f5-4ccf-9644-416f349e9e33
+		summarizeBy: none
+		sourceColumn: dmarc_pass
+
+		annotation SummarizationSetBy = Automatic
+
+	column both_fail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7c3ee3b7-99ec-4a70-a8cd-cad20808e499
+		summarizeBy: none
+		sourceColumn: both_fail
+
+		annotation SummarizationSetBy = Automatic
+
+	column report_date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: bc3a0fa9-153b-486d-af6a-232e7c48eb31
+		summarizeBy: none
+		sourceColumn: report_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'DMARC Data' = m
+		mode: import
+		source = ```
+				let
+				    // Set the folder path to your data_dmarc directory
+				    FolderPath = "C:\Users\RalphKemperdick\OneDrive - RaKeTe-Technology\DMARC-Reports\data_dmarc",
+				    
+				    // Get all files from the folder
+				    Source = Folder.Files(FolderPath),
+				    
+				    // Filter for CSV files only
+				    FilteredFiles = Table.SelectRows(Source, each Text.EndsWith([Name], ".csv")),
+				    #"Filtered Hidden Files1" = Table.SelectRows(FilteredFiles, each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Datei transformieren", each #"Datei transformieren"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Datei transformieren"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Datei transformieren", Table.ColumnNames(#"Datei transformieren"(Beispieldatei))),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Table Column1",{{"Source.Name", type text}, {"report_org", type text}, {"report_email", type text}, {"report_id", type text}, {"report_begin_utc", type datetime}, {"report_end_utc", type datetime}, {"policy_domain", type text}, {"policy_adkim", type text}, {"policy_aspf", type text}, {"policy_p", type text}, {"policy_sp", type text}, {"policy_pct", Int64.Type}, {"source_ip", type text}, {"message_count", Int64.Type}, {"disposition", type text}, {"dkim_aligned", type text}, {"spf_aligned", type text}, {"fail_reason_type", type any}, {"fail_reason_comment", type any}, {"header_from", type text}, {"envelope_from", type text}, {"auth_dkim_domain", type text}, {"auth_dkim_result", type text}, {"auth_dkim_selector", type text}, {"auth_spf_domain", type text}, {"auth_spf_result", type text}, {"auth_spf_scope", type text}, {"source_file", type text}, {"dmarc_pass", type logical}, {"both_fail", type logical}, {"report_date", type date}})
+				in
+				    #"Changed Type"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

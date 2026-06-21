@@ -1,0 +1,25 @@
+DEFINE
+	VAR __DS0FilterTable = 
+		FILTER(
+			KEEPFILTERS(VALUES('Dates'[Date])),
+			AND('Dates'[Date] >= DATE(2026, 4, 22), 'Dates'[Date] < DATE(2026, 5, 2))
+		)
+
+	VAR __DS0Core = 
+		SUMMARIZECOLUMNS(
+			'DMARC Data'[message_count],
+			__DS0FilterTable,
+			"Countpolicy_domain", CALCULATE(COUNTA('DMARC Data'[policy_domain])),
+			"SPF_Pass_Rate", 'Kennzahlen'[SPF Pass Rate],
+			"Both_Fail_Rate", 'Kennzahlen'[Both Fail Rate],
+			"DKIM_Pass_Rate", 'Kennzahlen'[DKIM Pass Rate]
+		)
+
+	VAR __DS0BodyLimited = 
+		SAMPLE(3502, __DS0Core, 'DMARC Data'[message_count], 1)
+
+EVALUATE
+	__DS0BodyLimited
+
+ORDER BY
+	'DMARC Data'[message_count]

@@ -1,0 +1,563 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.0.0/schema.json",
+  "displayName": "Security & Threat Detection",
+  "name": "1e3df8e688fb88605f4b",
+  "options": {
+    "targetVisualNames": [
+      "9e2958571ad5c8157029"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "dec03979320e3ab21ccd",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "4d88cd623f0947b36085",
+          "type": "RelativeDate",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "d",
+                "Entity": "Dates",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "Between": {
+                    "Expression": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Date"
+                      }
+                    },
+                    "LowerBound": {
+                      "DateSpan": {
+                        "Expression": {
+                          "DateAdd": {
+                            "Expression": {
+                              "DateAdd": {
+                                "Expression": {
+                                  "Now": {}
+                                },
+                                "Amount": 1,
+                                "TimeUnit": 0
+                              }
+                            },
+                            "Amount": -365,
+                            "TimeUnit": 0
+                          }
+                        },
+                        "TimeUnit": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "DateSpan": {
+                        "Expression": {
+                          "Now": {}
+                        },
+                        "TimeUnit": 0
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "Dates"
+                }
+              },
+              "Property": "Date"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "1db2b128f5ddea692c6b",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DMARC Data"
+                }
+              },
+              "Property": "disposition"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "790d9b97a731969ab5bd",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DMARC Data"
+                }
+              },
+              "Property": "report_org"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "dec03979320e3ab21ccd": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "a77836669d715833b048",
+              "type": "RelativeDate",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dates"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "4d280414c993e4e2dd03",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DMARC Data"
+                    }
+                  },
+                  "Property": "fail_reason_type"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "172d02396e2550aa90c9",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DMARC Data"
+                    }
+                  },
+                  "Property": "source_ip"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "1b1e084fd2cb25a8979d": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "4df2e8a4ae02b3b4d061": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3d52f8d22dc92ae47ab1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Messages Quarantined"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Messages Quarantined"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "4fe1d58a597a22c25064": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "98dbcc4c3581884a4433",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Messages Rejected"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Messages Rejected"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "7c5804a47d94773597b3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5cdfa273a0ece25f1caf",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Dates"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Datumshierarchie"
+                        }
+                      },
+                      "Level": "Tag"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "baba16d7adc058d48eef",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Spoofing Attempts"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Dates"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Datumshierarchie"
+                        }
+                      },
+                      "Level": "Tag"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Dates"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Datumshierarchie"
+                        }
+                      },
+                      "Level": "Tag"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "8bb39970a963e3450d2e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4777e589f1a20848098f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Messages Passed"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Messages Passed"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "987ef6242e022d145e84": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e1c443b7d0e9a1a3ec50",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "fail_reason_type"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "40ca4d4d8295196ed100",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Failed Auth Count"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Failed Auth Count"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "fail_reason_type"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9e2958571ad5c8157029": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "e6b3ab678aea16b4dbc7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "34b13607b669b81a5bff",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "source_ip"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "72ed1bd0434459eaf552",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Failed Auth Count"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Failed Auth Count"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "source_ip"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

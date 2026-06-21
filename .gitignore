@@ -1,0 +1,6 @@
+.env
+.venv/
+inbox/2025
+inbox/2026
+data_dmarc/
+processed_messages.json

@@ -1,0 +1,28 @@
+table Dates
+	lineageTag: 482a3563-3d51-4d7c-8dc8-32eeede3e488
+
+	column Date
+		formatString: Short Date
+		lineageTag: 3c941836-c2e1-47e0-80a6-7a59e7bff520
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 3518f19e-b33c-42da-acab-f3f0656299a7
+			defaultHierarchy: LocalDateTable_76d0ebcb-5d23-4391-a80c-acb9ef469484.Datumshierarchie
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Dates = calculated
+		mode: import
+		source = ```
+				CALENDAR(DATE(2024,1,1), TODAY())
+				
+				```
+
+	annotation PBI_Id = 1f1620f6427a4ca8990da30781a95212
+

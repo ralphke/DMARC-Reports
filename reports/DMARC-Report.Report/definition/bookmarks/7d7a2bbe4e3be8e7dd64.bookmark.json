@@ -1,0 +1,664 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.0.0/schema.json",
+  "displayName": "Authentification Analysis",
+  "name": "7d7a2bbe4e3be8e7dd64",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "414eeec8ae9b1c0d730c",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "4d88cd623f0947b36085",
+          "type": "RelativeDate",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "d",
+                "Entity": "Dates",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "Between": {
+                    "Expression": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Date"
+                      }
+                    },
+                    "LowerBound": {
+                      "DateSpan": {
+                        "Expression": {
+                          "DateAdd": {
+                            "Expression": {
+                              "DateAdd": {
+                                "Expression": {
+                                  "Now": {}
+                                },
+                                "Amount": 1,
+                                "TimeUnit": 0
+                              }
+                            },
+                            "Amount": -365,
+                            "TimeUnit": 0
+                          }
+                        },
+                        "TimeUnit": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "DateSpan": {
+                        "Expression": {
+                          "Now": {}
+                        },
+                        "TimeUnit": 0
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "Dates"
+                }
+              },
+              "Property": "Date"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "1db2b128f5ddea692c6b",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DMARC Data"
+                }
+              },
+              "Property": "disposition"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "790d9b97a731969ab5bd",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DMARC Data"
+                }
+              },
+              "Property": "report_org"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "414eeec8ae9b1c0d730c": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "6f0018215b490464228d",
+              "type": "RelativeDate",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "Dates",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Between": {
+                        "Expression": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Date"
+                          }
+                        },
+                        "LowerBound": {
+                          "DateSpan": {
+                            "Expression": {
+                              "DateAdd": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "Now": {}
+                                    },
+                                    "Amount": 1,
+                                    "TimeUnit": 0
+                                  }
+                                },
+                                "Amount": -10,
+                                "TimeUnit": 0
+                              }
+                            },
+                            "TimeUnit": 0
+                          }
+                        },
+                        "UpperBound": {
+                          "DateSpan": {
+                            "Expression": {
+                              "Now": {}
+                            },
+                            "TimeUnit": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dates"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "b4a3c751b306038aa8bb",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DMARC Data"
+                    }
+                  },
+                  "Property": "policy_domain"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "f511e2f1025022b1dae4",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DMARC Data"
+                    }
+                  },
+                  "Property": "report_org"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "0c2778f47a44be732078": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "1e9333e5009299b84c00": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "818ab0812f53ae1e3e58",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "policy_domain"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f857ba4051796778ef9e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "auth_dkim_result"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f2b2887bd0124ea63c48",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "auth_spf_result"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "82b0eed2df674aa042bd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Total Messages"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "auth_dkim_result"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "2defd739c900ea400290": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ce7c6491f50f2a962374",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "DKIM Pass Rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "22b124bb2ddde9ab0186",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "SPF Pass Rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "912b2e4f1232e2228a08",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "policy_domain"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "hundredPercentStackedBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "DKIM Pass Rate"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "policy_domain"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e6efcf5132643629cd03": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8484a4f243990a7f5102",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "message_count"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "77b5042c3382ba5d6db5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DMARC Data"
+                            }
+                          },
+                          "Property": "policy_domain"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e99d85f1debbf0904234",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "SPF Pass Rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a195849a51a058cc0255",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Both Fail Rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "09a000f8ad3ac00ca7a2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "DKIM Pass Rate"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "hundredPercentStackedBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DMARC Data"
+                            }
+                          },
+                          "Property": "policy_domain"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DMARC Data"
+                        }
+                      },
+                      "Property": "message_count"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "fe27b8f40621b21027ee": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c1178c999988443cb73e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "DKIM and SPF Aligned"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "gauge",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "DKIM and SPF Aligned"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "fe39f041e642dc2cf28f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "06ca07d237654382f4dd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Either DKIM or SPF Aligned"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "gauge",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Either DKIM or SPF Aligned"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "e166403c657e5aa6d192": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d169ed5f83eda88f3e22",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Neither Aligned"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "gauge",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Kennzahlen"
+                        }
+                      },
+                      "Property": "Neither Aligned"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

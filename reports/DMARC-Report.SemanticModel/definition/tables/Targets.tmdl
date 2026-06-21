@@ -1,0 +1,47 @@
+table Targets
+	lineageTag: 9f8eeeb3-1523-4063-bf7b-ee56c7324039
+
+	column Target_100
+		formatString: #,0.00\ %;-#,0.00\ %;#,0.00\ %
+		lineageTag: b3bca56f-ff30-410a-a5e8-bcd1bae6d45e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Target_100]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Target_50
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: e7043086-8b31-48d2-bd7e-a04bac106396
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Target_50]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Target_0
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 92f3c201-88e1-4cfe-8888-77db167657c6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Target_0]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Targets = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "Target_100", DOUBLE,
+				    "Target_50", DOUBLE,
+				    "Target_0", DOUBLE,
+				    {
+				        { 1.0, 0.5, 0.0 }
+				    }
+				)
+				 
+				```
+
+	annotation PBI_Id = 2ecd5a826025468eb1932140b72b2699
+

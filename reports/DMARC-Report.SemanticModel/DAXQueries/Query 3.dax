@@ -1,0 +1,44 @@
+DEFINE
+	VAR __DS0FilterTable = 
+		FILTER(
+			KEEPFILTERS(VALUES('Dates'[Date])),
+			AND('Dates'[Date] >= DATE(2026, 4, 22), 'Dates'[Date] < DATE(2026, 5, 2))
+		)
+
+	VAR __DS0Core = 
+		SUMMARIZECOLUMNS(
+			ROLLUPADDISSUBTOTAL(
+				ROLLUPGROUP(
+					'DMARC Data'[policy_domain],
+					'DMARC Data'[auth_dkim_result],
+					'DMARC Data'[auth_spf_result]
+				), "IsGrandTotalRowTotal"
+			),
+			__DS0FilterTable,
+			"Total_Messages", 'Kennzahlen'[Total Messages],
+			"Minauth_dkim_result", IGNORE(CALCULATE(MIN('DMARC Data'[auth_dkim_result]))),
+			"Minauth_spf_result", IGNORE(CALCULATE(MIN('DMARC Data'[auth_spf_result])))
+		)
+
+	VAR __DS0PrimaryWindowed = 
+		TOPN(
+			502,
+			__DS0Core,
+			[IsGrandTotalRowTotal],
+			0,
+			'DMARC Data'[auth_dkim_result],
+			0,
+			'DMARC Data'[policy_domain],
+			1,
+			'DMARC Data'[auth_spf_result],
+			1
+		)
+
+EVALUATE
+	__DS0PrimaryWindowed
+
+ORDER BY
+	[IsGrandTotalRowTotal] DESC,
+	'DMARC Data'[auth_dkim_result] DESC,
+	'DMARC Data'[policy_domain],
+	'DMARC Data'[auth_spf_result]

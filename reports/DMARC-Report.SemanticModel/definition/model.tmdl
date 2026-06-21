@@ -1,0 +1,33 @@
+model Model
+	culture: de-DE
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: de-DE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Datei aus  dmarc_2025-12-31  transformieren'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Datei aus  dmarc_2025-12-31  transformieren\Hilfsprogrammabfragen'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DMARC Data","Beispieldatei","Parameter1","Beispieldatei transformieren","Datei transformieren"]
+
+annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop"]
+
+ref table 'DMARC Data'
+ref table DateTableTemplate_343dab82-8288-4fd2-acb1-c97de650ed15
+ref table LocalDateTable_08543b0c-9110-4c76-b83c-6b15eea42855
+ref table LocalDateTable_755bfeab-5df0-4da9-917a-ffbca0f00a4c
+ref table Dates
+ref table LocalDateTable_76d0ebcb-5d23-4391-a80c-acb9ef469484
+ref table Kennzahlen
+ref table Targets
+
+ref cultureInfo de-DE
+

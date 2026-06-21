@@ -1,0 +1,51 @@
+expression Parameter1 = Beispieldatei meta [IsParameterQuery=true, BinaryIdentifier=Beispieldatei, Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: c407123f-3e21-49ec-957d-c3278a28898c
+	queryGroup: 'Datei aus  dmarc_2025-12-31  transformieren\Hilfsprogrammabfragen'
+
+	annotation PBI_ResultType = Binary
+
+expression Beispieldatei = ```
+		let
+		    // Set the folder path to your data_dmarc directory
+		    FolderPath = "C:\Users\RalphKemperdick\OneDrive - RaKeTe-Technology\DMARC-Reports\data_dmarc",
+		    
+		    // Get all files from the folder
+		    Source = Folder.Files(FolderPath),
+		    
+		    // Filter for CSV files only
+		    FilteredFiles = Table.SelectRows(Source, each Text.EndsWith([Name], ".csv")),
+		    Navigation1 = FilteredFiles{0}[Content]
+		in
+		    Navigation1
+		```
+	lineageTag: e27cdb76-f48f-4be7-85b1-bbbafe53f6c7
+	queryGroup: 'Datei aus  dmarc_2025-12-31  transformieren\Hilfsprogrammabfragen'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Beispieldatei transformieren' =
+		let
+		    Source = Csv.Document(Parameter1,[Delimiter=",", Columns=30, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+	lineageTag: 0ebaf67b-49f9-481b-8cb3-0ae29ec442d2
+	queryGroup: 'Datei aus  dmarc_2025-12-31  transformieren'
+
+	annotation PBI_ResultType = Table
+
+expression 'Datei transformieren' =
+		let
+		    Source = (Parameter1 as binary) => let
+		    Source = Csv.Document(Parameter1,[Delimiter=",", Columns=30, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+		in
+		    Source
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Beispieldatei transformieren""}" ]
+	lineageTag: 54e16ba0-752d-4899-92c3-9c79babfe11d
+	queryGroup: 'Datei aus  dmarc_2025-12-31  transformieren\Hilfsprogrammabfragen'
+
+	annotation PBI_ResultType = Function
+

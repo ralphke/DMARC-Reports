@@ -1,0 +1,20 @@
+relationship 088af2a8-c122-46f1-a2ed-84415340a88c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DMARC Data'.report_begin_utc
+	toColumn: LocalDateTable_08543b0c-9110-4c76-b83c-6b15eea42855.Date
+
+relationship 06e8d68e-e42a-4a7f-9576-9422eb512007
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DMARC Data'.report_end_utc
+	toColumn: LocalDateTable_755bfeab-5df0-4da9-917a-ffbca0f00a4c.Date
+
+relationship 3518f19e-b33c-42da-acab-f3f0656299a7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dates.Date
+	toColumn: LocalDateTable_76d0ebcb-5d23-4391-a80c-acb9ef469484.Date
+
+relationship 65ed9b70-b865-02ac-7994-01d14e4d5797
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'DMARC Data'.report_date
+	toColumn: Dates.Date
+

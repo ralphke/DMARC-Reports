@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "DMARC-Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c6b0bd94-b54d-4804-b80c-9259508eac04"
+  }
+}

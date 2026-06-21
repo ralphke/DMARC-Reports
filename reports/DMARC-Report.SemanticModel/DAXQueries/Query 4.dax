@@ -1,0 +1,9 @@
+DEFINE VAR __DS0FilterTable = 
+	TREATAS(
+		{("April", "none")},
+		'LocalDateTable_76d0ebcb-5d23-4391-a80c-acb9ef469484'[Monat],
+		'DMARC Data'[disposition]
+	)
+
+EVALUATE
+	SUMMARIZECOLUMNS(__DS0FilterTable, "SPF_Pass_Rate", IGNORE('Kennzahlen'[SPF Pass Rate]))
