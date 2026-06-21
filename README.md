@@ -64,11 +64,19 @@ To recreate this Power BI dashboard using GitHub Copilot, use the Copilot plan m
    - Describe the data sources, desired visuals, and the reporting pages you want.
    - Ask Copilot to create a step-by-step implementation plan for a DMARC dashboard built from `data_dmarc/*.csv`.
    - Include requirements such as KPI cards, authentication analysis, failure trends, and data quality monitoring.
+   - Reference the existing markdown files in this repo (`PowerBI DMARC Report requirements.md`, `PowerBI_Build_Guide.md`, `PowerBI_Dashboard_Specifications.md`, `PowerBI_DAX_Measures.md`) so Copilot can align the new dashboard to current design and documentation.
 
 2. Use Copilot **agent mode** to implement the plan:
    - Provide the implementation plan and the repository context.
-   - Ask the agent to create or update Power BI documentation, DAX measures, and any needed data preparation guidance.
+   - Ask the agent to create or update Power BI documentation and markdown files as needed.
    - Use the agent to generate report structure, measure names, and Power BI build instructions.
+   - If you want to preserve or extend the current documentation, ask Copilot to update the existing markdown files rather than creating separate copies.
+
+3. Create and use the existing markdown files with Copilot:
+   - In plan mode, ask Copilot to review the current markdown files and identify any gaps or missing dashboard details.
+   - Ask Copilot to generate or refresh `PowerBI_Build_Guide.md`, `PowerBI_Dashboard_Specifications.md`, and `PowerBI_DAX_Measures.md` from the plan.
+   - In agent mode, ask for a concrete implementation of those markdown files and how they map to the actual Power BI report pages.
+   - You can also request Copilot to create a new markdown file that summarizes the dashboard architecture and data model.
 
 ### Important
 
