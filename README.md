@@ -60,6 +60,60 @@ The dashboard files and design notes include:
 - suggested measures for pass rate, total messages, failed counts, and spoofing metrics
 - page layouts for executive summary, authentication analysis, threat detection, and monitoring
 
+## Dashboard look and feel (with screenshots)
+
+This section shows the current report experience page by page.
+
+### 1) Executive Summary (KPIs & Trends)
+
+![Executive Summary](images/Executive-Summary-2026-06-22.png)
+
+What you will see:
+- headline KPI cards for DMARC, DKIM, and SPF pass rates plus total message volume
+- a disposition split visual to compare `none`, `quarantine`, and `reject`
+- a trend view for message and authentication behavior over time
+- top navigation buttons for moving across report pages and a clear-filters action
+
+### 2) Authentication Analysis
+
+![Authentication Analysis](images/Authentication%20Analysis-2026-06-22.png)
+
+What you will see:
+- side-by-side visuals comparing SPF and DKIM alignment behavior
+- gauges highlighting current authentication performance levels
+- a detailed table for domain/source-level inspection
+- a focused layout to identify where authentication gaps are concentrated
+
+### 3) Security & Threat Detection
+
+![Security & Threat Detection](images/Security-Threat%20Detection-2026-06-22.png)
+
+What you will see:
+- threat-oriented visuals for suspicious senders and failing authentication patterns
+- distribution charts that surface risk and policy outcomes
+- policy enforcement metric cards for quick security posture checks
+- trend context to spot escalation or recurring attack-like behavior
+
+### 4) Data Quality & Monitoring
+
+![Data Quality & Monitoring](images/Data%20Quality-Monitoring-2026-06-22.png)
+
+What you will see:
+- quality and completeness KPI cards for report ingestion and normalization health
+- organization-level monitoring details in a tabular view
+- performance and consistency indicators for ongoing operational oversight
+- a monitoring-oriented layout designed for refresh-to-refresh checks
+
+### 5) Time Series & Trends
+
+![Time Series & Trends](images/Time_Series-Trends-2026-06-22.png)
+
+What you will see:
+- long-range time-series visuals showing DMARC and volume movement
+- combined charting for correlation between traffic and authentication outcomes
+- a trend table for period-over-period analysis
+- an at-a-glance historical baseline to support planning and anomaly detection
+
 ## Recreate the Power BI dashboard with Copilot
 
 To recreate this Power BI dashboard using GitHub Copilot, use the Copilot plan mode first to define the dashboard scope and then switch to agent mode to implement the solution.
