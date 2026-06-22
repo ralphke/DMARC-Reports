@@ -142,6 +142,43 @@ To recreate this Power BI dashboard using GitHub Copilot, use the Copilot plan m
 - The Power BI MCP service is essential for best results when using Copilot to build or recreate this dashboard. It enables better Power BI-specific guidance, DAX creation, and report scaffolding.
 - Without the Power BI MCP service, Copilot can still help, but the dashboard planning and implementation will be less tailored to Power BI features.
 
+## Install and use the `/powerbi-authoring` plugin in Copilot CLI
+
+### Install
+
+Install from the Copilot plugin marketplace:
+
+```text
+/plugin marketplace add microsoft/skills-for-fabric
+```
+
+Then verify the plugin is available:
+
+```text
+/powerbi-authoring check-updates
+```
+
+### Typical usage in this repo
+
+Use the `/powerbi-authoring` command prefix to run skills for semantic models and PBIR/PBIP reports.
+
+Examples:
+
+```text
+/powerbi-authoring semantic-model-authoring create semantic model for DMARC CSV data
+/powerbi-authoring powerbi-report-planning build a 5-page DMARC dashboard plan
+/powerbi-authoring powerbi-report-design improve layout, color, and chart choices
+/powerbi-authoring powerbi-report-authoring validate reports/DMARC-Report.pbip and fix issues
+/powerbi-authoring powerbi-report-management list reports in my Fabric workspace
+```
+
+### Recommended workflow
+
+1. Run `semantic-model-authoring` for model/table/measure work.
+2. Run `powerbi-report-planning` and `powerbi-report-design` to define report scope and UX.
+3. Run `powerbi-report-authoring` for PBIP/PBIR implementation and validation.
+4. Run `powerbi-report-management` to publish/manage report artifacts in Fabric.
+
 ## Setup and installation
 
 - Create and activate a Python virtual environment in the repo folder.
