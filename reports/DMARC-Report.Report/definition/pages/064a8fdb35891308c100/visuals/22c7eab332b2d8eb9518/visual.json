@@ -19,7 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": ""
+                    "value": "DMARC Authentication Dashboard - Executive Summary",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Arial",
+                      "fontSize": "24pt",
+                      "color": "#666666"
+                    }
                   }
                 ],
                 "horizontalTextAlignment": "center"
@@ -27,11 +33,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "DMARC Authentication Dashboard - Executive Summary",
+                    "value": "Review overall authentication posture, message volume trends, and disposition mix at a glance.",
                     "textStyle": {
-                      "fontWeight": "bold",
                       "fontFamily": "Arial",
-                      "fontSize": "24pt",
+                      "fontSize": "10pt",
                       "color": "#666666"
                     }
                   }

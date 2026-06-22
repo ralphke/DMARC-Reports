@@ -5,7 +5,7 @@
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 64,
+    "height": 80,
     "width": 1152,
     "tabOrder": 0
   },
@@ -24,6 +24,19 @@
                       "fontWeight": "bold",
                       "fontFamily": "Arial",
                       "fontSize": "24pt",
+                      "color": "#666666"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Monitor reporting coverage, ingestion consistency, and sender-level anomalies in the dataset.",
+                    "textStyle": {
+                      "fontFamily": "Arial",
+                      "fontSize": "10pt",
                       "color": "#666666"
                     }
                   }

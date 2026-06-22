@@ -3,9 +3,9 @@
   "name": "1b1e084fd2cb25a8979d",
   "position": {
     "x": 576,
-    "y": 424,
+    "y": 422,
     "z": 7000,
-    "height": 32,
+    "height": 34,
     "width": 624,
     "tabOrder": 7000
   },
@@ -23,7 +23,7 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Arial",
-                      "fontSize": "14pt"
+                      "fontSize": "9pt"
                     }
                   }
                 ],

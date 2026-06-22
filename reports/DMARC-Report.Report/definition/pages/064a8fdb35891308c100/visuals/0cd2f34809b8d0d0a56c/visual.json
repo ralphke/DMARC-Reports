@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0cd2f34809b8d0d0a56c",
   "position": {
     "x": 525.27988128463107,
@@ -65,7 +65,7 @@
               },
               "queryRef": "Dates.Date.Variation.Datumshierarchie.Tag",
               "nativeQueryRef": "Date Tag",
-              "active": true
+              "active": false
             }
           ]
         },

@@ -23,7 +23,8 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Arial",
-                      "fontSize": "24pt"
+                      "fontSize": "20pt",
+                      "color": "#666666"
                     }
                   }
                 ],

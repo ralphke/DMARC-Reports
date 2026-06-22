@@ -19,11 +19,24 @@
               {
                 "textRuns": [
                   {
-                    "value": " Authentication Analysis ",
+                    "value": "Authentication Analysis",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Arial",
                       "fontSize": "24pt",
+                      "color": "#666666"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Compare SPF and DKIM alignment rates to identify policy enforcement and authentication gaps.",
+                    "textStyle": {
+                      "fontFamily": "Arial",
+                      "fontSize": "10pt",
                       "color": "#666666"
                     }
                   }
